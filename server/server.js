@@ -32,9 +32,9 @@ server.get('/profiles/:id', (req, res) => {
   }
 })
 
-server.get('/hello/:id', (ear, mouth) => {
-  const name = ear.params.id
-  mouth.send(`${name}! you made it`)
+server.get('/hello/:id', (req, res) => {
+  const name = req.params.id
+  res.send(`${name}! you made it`)
 })
 
 server.post('/get-name', (req, res) => {

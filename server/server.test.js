@@ -19,6 +19,6 @@ test("GET '/profiles/2' res with sampson.html", async () => {
 })
 
 test("GET '/hello' res with get-name.html", async () => {
-  const response = await request(server).get('/hello')
-  expect(response.text).toMatch('Wauuu! you made it')
+  const response = await request(server).get('/hello/Sampson')
+  expect(response.text).toMatch('Sampson! you made it')
 })
