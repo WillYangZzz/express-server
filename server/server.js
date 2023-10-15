@@ -2,6 +2,7 @@ import * as Path from 'node:path/posix'
 import * as URL from 'node:url'
 
 import express from 'express'
+import path from 'node:path'
 
 const __filename = URL.fileURLToPath(import.meta.url)
 const __dirname = Path.dirname(__filename)
@@ -17,6 +18,9 @@ server.get('/', (req, res) => {
   res.sendFile(Path.join(__dirname, 'compliment.html'))
 })
 
+server.get('/profile', (req, res) => {
+  res.sendFile(Path.join(__dirname, 'silvia.html'))
+})
 // server.get('/compliment', (req, res) => {
 //   res.send('<h1> You are handsome! </h1>')
 // })
