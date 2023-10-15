@@ -10,4 +10,9 @@ const server = express()
 server.get('/compliment', (reg, res) => {
   res.send('<h1>Damnnnn shortyyy!!</h1>')
 })
+
+server.get('/profile', (reg, res) => {
+  res.sendFile(Path.join(__dirname, 'silvia.html'))
+})
+
 export default server
