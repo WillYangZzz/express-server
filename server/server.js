@@ -8,6 +8,6 @@ const __dirname = Path.dirname(__filename)
 
 const server = express()
 server.get('/compliment', (reg, res) => {
-  res.send('Damnnnn shortyyyyyy')
+  res.send('<h1>Damnnnn shortyyy!!</h1>')
 })
 export default server
