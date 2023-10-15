@@ -13,3 +13,8 @@ export default server
 server.get('/compliment', (req, res) => {
   res.send('Something nice')
 })
+
+const silviaPath = Path.join(__dirname, 'silvia.html')
+server.get('/profile', (req, res) => {
+  res.sendFile(silviaPath)
+})
