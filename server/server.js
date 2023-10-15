@@ -8,7 +8,7 @@ const __dirname = Path.dirname(__filename)
 
 const server = express()
 
-export default server
+server.use(express.static(Path.join(__dirname, 'public')))
 
 server.get('/compliment', (req, res) => {
   res.send(`<h1>You look amonzing today!</h1>`)
@@ -34,4 +34,13 @@ server.get('/profiles/:id', (req, res) => {
   }
 
   res.sendFile(Path.join(__dirname, fileName))
+  console.log(Path.join(__dirname, fileName))
+  console.log(fileName)
+  console.log(req.params.id)
 })
+
+server.get('/customer', (req, res) => {
+  res.sendFile(Path.join(__dirname, 'public', 'silvia.html'))
+})
+
+export default server
