@@ -15,6 +15,32 @@ server.get('/compliment', (req, res) => {
 })
 
 const silviaPath = Path.join(__dirname, 'silvia.html')
+const sampsonPath = Path.join(__dirname, 'sampson.html')
+
+// params example
+// server.get('/profile/:name', (req, res) => {
+//   // res.sendFile(sampsonPath)
+//   let name = req.params.name
+
+//   console.log(req.params.name)
+
+//   if (name == 'silvia') {
+//     res.sendFile(silviaPath)
+//   } else if (name == 'sampson') {
+//     res.sendFile(sampsonPath)
+//   }
+// })
+
+// query example
 server.get('/profile', (req, res) => {
-  res.sendFile(silviaPath)
+  // res.sendFile(sampsonPath)
+  let name = req.query.name
+
+  console.log(req.query.name)
+
+  if (name == 'silvia') {
+    res.sendFile(silviaPath)
+  } else if (name == 'sampson') {
+    res.sendFile(sampsonPath)
+  }
 })

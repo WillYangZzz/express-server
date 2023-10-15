@@ -6,6 +6,3 @@ server.listen(port, function () {
   // eslint-disable-next-line no-console
   console.log('Server listening on port:', port)
 })
-server.get('/compliment', (res, req) => {
-  res.send('Something nice')
-})
