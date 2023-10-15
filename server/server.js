@@ -15,7 +15,23 @@ server.get('/compliment', (req, res) => {
 })
 
 server.get('/profile', (req, res) => {
-  console.log(req.query.name)
   const fileName = req.query.name + '.html'
+  res.sendFile(Path.join(__dirname, fileName))
+})
+
+server.get('/profiles/:id', (req, res) => {
+  let fileName
+
+  switch (req.params.id) {
+    case '1':
+      fileName = 'silvia.html'
+      break
+    case '2':
+      fileName = 'sampson.html'
+      break
+    default:
+      res.send('Not found')
+  }
+
   res.sendFile(Path.join(__dirname, fileName))
 })
