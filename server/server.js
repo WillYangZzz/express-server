@@ -13,3 +13,7 @@ export default server
 server.get('/compliment', (req, res) => {
   res.send(`<h1>You look amonzing today!</h1>`)
 })
+
+server.get('/profile', (req, res) => {
+  res.sendFile(Path.join(__dirname, 'silvia.html'))
+})
