@@ -15,5 +15,7 @@ server.get('/compliment', (req, res) => {
 })
 
 server.get('/profile', (req, res) => {
-  res.sendFile(Path.join(__dirname, 'silvia.html'))
+  console.log(req.query.name)
+  const fileName = req.query.name + '.html'
+  res.sendFile(Path.join(__dirname, fileName))
 })
