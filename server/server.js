@@ -24,6 +24,16 @@ server.get('/profile', (req, res) => {
   res.sendFile(Path.join(__dirname, fileName))
 })
 
+server.get('/profiles/:id', (req, res) => {
+  const value = req.params.id
+
+  if (value === '1') {
+    res.sendFile(Path.join(__dirname, 'silvia.html'))
+  } else if (value === '2') {
+    res.sendFile(Path.join(__dirname, 'sampson.html'))
+  }
+})
+
 // another route that accepts a dynamic param
 // server.get('/ascii/:profile/:id', (req, res) => {
 //   const value = req.params.id // <===== the dynamic param
