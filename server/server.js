@@ -14,8 +14,10 @@ server.get('/compliment', (req, res) => {
   res.send('Something nice')
 })
 
-const silviaPath = Path.join(__dirname, 'silvia.html')
-const sampsonPath = Path.join(__dirname, 'sampson.html')
+server.use(express.static(Path.join(__dirname, './public')))
+
+const silviaPath = Path.join(__dirname, './public/silvia.html')
+const sampsonPath = Path.join(__dirname, './public/sampson.html')
 
 // query example
 server.get('/profile', (req, res) => {
