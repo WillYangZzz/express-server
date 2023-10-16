@@ -31,3 +31,12 @@ server.get('/profiles/:id', (req, res) => {
     res.sendFile(Path.join(__dirname, '../public/sampson.html'))
   }
 })
+
+server.get('/hello', (req, res) => {
+  res.send('Wauuu! you made it')
+})
+
+server.post('/get-name', (req, res) => {
+  console.log(req.body)
+  res.redirect('/hello')
+})
