@@ -7,6 +7,9 @@ const __filename = URL.fileURLToPath(import.meta.url)
 const __dirname = Path.dirname(__filename)
 
 const server = express()
+
+server.use(express.static(Path.join(__dirname, 'public')))
+
 server.get('/compliment', (req, res) => {
   res.send('<h1>Damnnnn shortyyy!!</h1>')
 })
