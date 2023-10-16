@@ -9,6 +9,11 @@ test("GET '/' res with compliment.html", async () => {
 })
 
 test("GET '/profiles/1' res with value", async () => {
+  const response = await request(server).get('/profiles/1')
+  expect(response.text).toContain('silvia profile')
+})
+
+test("GET '/profiles/2' res with value", async () => {
   const response = await request(server).get('/profiles/2')
   expect(response.text).toContain('sampson profile')
 })
