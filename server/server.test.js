@@ -8,12 +8,17 @@ test("GET '/' res with compliment.html", async () => {
   expect(response.text).toContain('handsome')
 })
 
-test("GET '/profiles/1' res with value", async () => {
+test("GET '/profiles/1' res with silvia.html", async () => {
   const response = await request(server).get('/profiles/1')
   expect(response.text).toContain('silvia profile')
 })
 
-test("GET '/profiles/2' res with value", async () => {
+test("GET '/profiles/2' res with sampson.html", async () => {
   const response = await request(server).get('/profiles/2')
   expect(response.text).toContain('sampson profile')
+})
+
+test("GET '/hello' res with get-name.html", async () => {
+  const response = await request(server).get('/hello')
+  expect(response.text).toMatch('Wauuu! you made it')
 })

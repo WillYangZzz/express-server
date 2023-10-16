@@ -32,11 +32,12 @@ server.get('/profiles/:id', (req, res) => {
   }
 })
 
-server.get('/hello', (req, res) => {
-  res.send('Wauuu! you made it')
+server.get('/hello/:id', (ear, mouth) => {
+  const name = ear.params.id
+  mouth.send(`${name}! you made it`)
 })
 
 server.post('/get-name', (req, res) => {
-  console.log(req.form)
-  res.redirect('/hello')
+  console.log(req.body.profileName)
+  res.redirect(`/hello/${req.body.profileName}`)
 })
