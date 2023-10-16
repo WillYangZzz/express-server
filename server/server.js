@@ -17,20 +17,6 @@ server.get('/compliment', (req, res) => {
 const silviaPath = Path.join(__dirname, 'silvia.html')
 const sampsonPath = Path.join(__dirname, 'sampson.html')
 
-// params example
-// server.get('/profile/:name', (req, res) => {
-//   // res.sendFile(sampsonPath)
-//   let name = req.params.name
-
-//   console.log(req.params.name)
-
-//   if (name == 'silvia') {
-//     res.sendFile(silviaPath)
-//   } else if (name == 'sampson') {
-//     res.sendFile(sampsonPath)
-//   }
-// })
-
 // query example
 server.get('/profile', (req, res) => {
   // res.sendFile(sampsonPath)
@@ -41,6 +27,20 @@ server.get('/profile', (req, res) => {
   if (name == 'silvia') {
     res.sendFile(silviaPath)
   } else if (name == 'sampson') {
+    res.sendFile(sampsonPath)
+  }
+})
+
+// params example
+server.get('/profiles/:s', (req, res) => {
+  // res.sendFile(sampsonPath)
+  let name = req.params.s
+
+  console.log(req.params.s)
+
+  if (name == '1') {
+    res.sendFile(silviaPath)
+  } else if (name == '2') {
     res.sendFile(sampsonPath)
   }
 })
