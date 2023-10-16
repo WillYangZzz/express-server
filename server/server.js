@@ -23,7 +23,7 @@ server.get('/compliment', (req, res) => {
 server.post('/named-compliment', (req, res) => {
   console.log(req.body.name)
   const person = req.body.name
-  res.send(`Have a good day ` + person)
+  res.send(`<h1>Have a good day ${person} </h1>`)
   // res.redirect(`/name`)
 })
 
