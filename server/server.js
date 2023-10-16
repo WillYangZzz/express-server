@@ -11,7 +11,8 @@ export default server
 server.get('/compliment', (req, res) => {
   res.send('Something nice')
 })
-
+//make it so that express can handle post request with forms
+server.use(express.urlencoded({ extended: false }))
 server.use(express.static(Path.join(__dirname, './public')))
 
 const silviaPath = Path.join(__dirname, 'public/silvia.html')
@@ -37,4 +38,21 @@ server.get('/profiles/:s', (req, res) => {
   } else if (name == '2') {
     res.sendFile(sampsonPath)
   }
+})
+
+// //thankyou page
+// server.get('/thankyou', (req, res) => {
+//   res.send('thank you for the compliment')
+// })
+
+//links get-name.html to /giveCompliment
+server.get('/giveCompliment', (req, res) => {
+  res.sendFile(Path.join(__dirname, 'public/get-name.html'))
+})
+
+// compliment form
+server.post('/giveCompliment', (req, res) => {
+  console.log(req.body.theCompliment)
+  // res.redirect('/thankyou')
+  res.send(`${req.body.theCompliment} is a really awesome person`)
 })
