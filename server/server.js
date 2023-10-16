@@ -21,14 +21,12 @@ server.get('/compliment', (req, res) => {
 server.get('/profile/', (req, res) => {
   const name = req.query.name
 
-  console.log(name)
   res.sendFile(Path.join(__dirname, `/public/${name}.html`))
 })
 
 server.get('/profile/:name', (req, res) => {
   const name = req.params.name
 
-  console.log(name)
   res.sendFile(Path.join(__dirname, `/public/${name}.html`))
 })
 
