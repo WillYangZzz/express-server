@@ -7,7 +7,7 @@
   "author": "Dev Academy Aotearoa",
   "license": "ISC",
   "scripts": {
-    "start": "node server/index",
+    "start": "node index.js",
     "test": "vitest",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "format": "prettier -w '**/*.{js,jsx,ts,tsx}'"
