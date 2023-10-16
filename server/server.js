@@ -32,9 +32,6 @@ server.post('/named-compliment', (req, res) => {
 })
 
 server.get('/profiles/:id', (req, res) => {
-  let fileName
-  console.log(req.params.id)
-
   switch (req.params.id) {
     case '1': {
       res.sendFile(Path.join(__dirname, 'public/silvia.html'))
