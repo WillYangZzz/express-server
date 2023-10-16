@@ -14,7 +14,7 @@ server.use(express.urlencoded({ extended: false }))
 
 // // add a root called /compliment
 server.get('/', (req, res) => {
-  res.send('<h1>You are handsome!</h1>')
+  res.sendFile(Path.join(__dirname, '../public/compliment.html'))
 })
 
 server.get('/profile', (req, res) => {
