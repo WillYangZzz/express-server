@@ -48,6 +48,7 @@ server.get('/get-name', (req, res) => {
 
 server.post('/get-name', (req, res) => {
   res.send(`<h2>Thanks ${req.body.getName} ya legend!</h2>`)
+  console.log(req.body)
 })
 
 export default server
