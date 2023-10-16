@@ -37,6 +37,6 @@ server.get('/hello', (req, res) => {
 })
 
 server.post('/get-name', (req, res) => {
-  console.log(req.body)
+  console.log(req.form)
   res.redirect('/hello')
 })
