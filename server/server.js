@@ -8,26 +8,41 @@ const __dirname = Path.dirname(__filename)
 
 const server = express()
 
-server.use(express.static(Path.join(__dirname, `/public`)))
+server.use(express.static(Path.join(__dirname, `public`)))
 
-// server.get('/', (res, req) => {
-//   res.send(`You're the man!`)
-// })
+server.use(express.urlencoded({ extended: false }))
 
 server.get('/compliment', (req, res) => {
   res.send('Your the Man!')
 })
 
+// server.get('/name', (req, res) => {
+//   console.log(req.body.name)
+// })
+
+server.post('/named-compliment', (req, res) => {
+  console.log(req.body.name)
+  const person = req.body.name
+  res.send(`Have a good day ` + person)
+  // res.redirect(`/name`)
+})
+
 server.get('/profile/', (req, res) => {
   const name = req.query.name
-
-  res.sendFile(Path.join(__dirname, `/public/${name}.html`))
+  res.sendFile(__dirname, `../public/${name}.html`)
 })
 
 server.get('/profile/:name', (req, res) => {
   const name = req.params.name
 
-  res.sendFile(Path.join(__dirname, `/public/${name}.html`))
+  if (name === '1') {
+    res.sendFile(Path.join(__dirname, `public/silvia.html`))
+  } else if (name === '2') {
+    res.sendFile(Path.join(__dirname, `public/sampson.html`))
+  } else {
+    res.sendFile(Path.join(__dirname, `public/${name}.html`))
+  }
 })
 
+// console.log(name)
 export default server
