@@ -15,12 +15,27 @@ server.use(express.urlencoded({ extended: false }))
 
 // // add a root called /compliment
 server.get('/', (req, res) => {
-  res.sendFile(Path.join(__dirname, 'compliment.html'))
+  res.send('<h1>You are handsome!</h1>')
 })
 
 server.get('/profile', (req, res) => {
-  res.sendFile(Path.join(__dirname, 'silvia.html'))
+  let fileName = req.query.name + '.html'
+
+  res.sendFile(Path.join(__dirname, fileName))
 })
+
+// another route that accepts a dynamic param
+// server.get('/ascii/:profile/:id', (req, res) => {
+//   const value = req.params.id // <===== the dynamic param
+//   // query params are added by using the ? character and then key/value pairs
+
+//   if (value === '1') {
+//     res.sendFile(Path.join(__dirname, 'silvia.html'))
+//   } else if (value === '2') {
+//     res.sendFile(Path.join(__dirname, 'sampson.html'))
+//   }
+// })
+
 // server.get('/compliment', (req, res) => {
 //   res.send('<h1> You are handsome! </h1>')
 // })
