@@ -14,7 +14,7 @@ server.use(express.urlencoded({ extended: false }))
 
 // this is the homepage and users can view it by typing localhost:3000/
 server.get('/', (req, res) => {
-  res.sendFile(Path.join(__dirname, 'index.html'))
+  res.send(`<h1>Home Page</h1>`)
 })
 
 server.get('/compliment', (req, res) => {
@@ -23,6 +23,12 @@ server.get('/compliment', (req, res) => {
 
 server.get('/named-compliment', (req, res) => {
   res.sendFile(Path.join(__dirname, 'public', 'get-name.html'))
+})
+
+server.post('/named-compliment', (req, res) => {
+  res.send(
+    `${req.body.name}, you look great today! </br></br><a href='/named-compliment'>Go back</a>`
+  )
 })
 
 export default server
