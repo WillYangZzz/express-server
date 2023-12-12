@@ -18,7 +18,11 @@ server.get('/', (req, res) => {
 })
 
 server.get('/compliment', (req, res) => {
-  res.sendFile(Path.join(__dirname, 'index.html'))
+  res.send(`<h1>You look amazing today!<h1>`)
+})
+
+server.get('/named-compliment', (req, res) => {
+  res.sendFile(Path.join(__dirname, 'public', 'get-name.html'))
 })
 
 export default server
