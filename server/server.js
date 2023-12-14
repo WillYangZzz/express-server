@@ -27,32 +27,31 @@ server.get('/compliment/:name', (req, res) => {
   res.send(`<h1>Have a good day ${name} and ${person}</h1>`)
 })
 
-server.get('/profile/', (req, res) => {
+server.get('/profile', (req, res) => {
   const name = req.query.name
-  console.log(name)
-  res.sendFile(__dirname, `../public/${name}.html`)
+
+  res.sendFile(Path.join(__dirname, `../public/${name}.html`))
 })
 
-server.get('/profile/:name', (req, res) => {
-  const name = req.query.name
+server.get('/profile/:num', (req, res) => {
+  const num = req.params.num
 
-  if (name === '1') {
-    res.sendFile(Path.join(__dirname, `public/silvia.html`))
-  } else if (name === '2') {
-    res.sendFile(Path.join(__dirname, `public/sampson.html`))
+  if (num === '1') {
+    res.sendFile(Path.join(__dirname, `../public/silvia.html`))
+  } else if (num === '2') {
+    res.sendFile(Path.join(__dirname, `../public/sampson.html`))
   } else {
-    res.sendFile(Path.join(__dirname, `public/${name}.html`))
+    res.sendFile(Path.join(__dirname, `../public/${num}.html`))
   }
 })
 
-// server.get('/named-compliment', (req, res) => {
-//   res.sendFile(Path.join(__dirname, 'public', 'get-name.html'))
-// })
+server.get('/named-compliment', (req, res) => {
+  res.sendFile(Path.join(__dirname, '../public/get-name.html'))
+})
 
-// server.post('/named-compliment', (req, res) => {
-//   res.send(
-//     `${req.body.name}, you look great today! </br></br><a href='/named-compliment'>Go back</a>`
-//   )
-// })
+server.post('/named-compliment', (req, res) => {
+  const person = req.body.name
+  res.send(`<h1>Have a good day ${person} </h1>`)
+})
 
 export default server
